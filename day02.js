@@ -77,6 +77,20 @@ cleaned = cleaned.replace(/&/g, '');
 
 console.log(cleaned);
 
+//Exercises: Lvl 3 Number 4.
+
+const total = 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.';
+
+const euros = total.match(/\d+/gi);
+
+const valueOne = Number(euros[0]); 
+const valueTwo = Number(euros[1]); 
+const valueThree = Number(euros[2]); 
+
+const valueSumm = valueOne + valueTwo + valueThree;
+
+console.log(valueSumm);
+
 
 
 
