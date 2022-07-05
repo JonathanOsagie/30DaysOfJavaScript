@@ -3,7 +3,7 @@ const company = 'Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon';
 
 const companyList = company.split(',');
 
-const because  = 'You cannot end a sentence with because because because is a conjunction';
+const because = 'You cannot end a sentence with because because because is a conjunction';
 
 const challengeWhite = ' 30 Days Of JavaScript ';
 
@@ -14,36 +14,32 @@ const python = challenge.replace('JavaScript', 'Python');
 //what is the difference between search and indexof?
 let expres = /a/gi;
 
-function findAPosition()
-{
+function findAPosition() {
     let position = challenge.indexOf('a');
 
-    for(i = 0; i<challenge.length; i++){
+    for (i = 0; i < challenge.length; i++) {
 
     }
-    
+
 }
 
 let num = parseFloat('9.8');
 
-function setNum()
-{
-    if(num != 10){
+function setNum() {
+    if (num != 10) {
         num = 10;
     }
     return num;
 }
 
-function check(a,b)
-{
+function check(a, b) {
     const pression = /on/;
-    if( a.match(pression) != null && b.match(pression)!= null){
+    if (a.match(pression) != null && b.match(pression) != null) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
-} 
+}
 
 const sentence = "I hope this course is not full of jargon. ";
 
@@ -83,14 +79,10 @@ const total = 'He earns 5000 euro from salary per month, 10000 euro annual bonus
 
 const euros = total.match(/\d+/gi);
 
-const valueOne = Number(euros[0]); 
-const valueTwo = Number(euros[1]); 
-const valueThree = Number(euros[2]); 
+let valueSumm = 0;
+//doesnt work if valueSumm doesnt have an initial Value
 
-const valueSumm = valueOne + valueTwo + valueThree;
-
+for (i = 0; i < euros.length; i++) {
+    valueSumm += Number(euros[i]);
+}
 console.log(valueSumm);
-
-
-
-
