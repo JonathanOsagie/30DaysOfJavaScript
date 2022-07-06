@@ -34,11 +34,10 @@ function setNum() {
 
 function check(a, b) {
     const pression = /on/;
-    if (a.match(pression) != null && b.match(pression) != null) {
-        return true;
-    } else {
-        return false;
-    }
+
+    a.match(pression) != null && b.match(pression) != null 
+    ?   console.log("works") 
+    :   console.log("doesnt");
 }
 
 const sentence = "I hope this course is not full of jargon. ";
