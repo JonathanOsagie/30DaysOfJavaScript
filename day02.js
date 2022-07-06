@@ -60,18 +60,37 @@ const roundRando = Math.floor(rando) + 50;
 // const love = 'Love is the best thing in this world. Some found their love and some are still looking for their love.';
 // console.log(because.match(/because/gi).length);
 
+//Exercises: Lvl 3 Number 3.
+
 const cleanUp = '%I $am@% a %tea@cher%, &and& I lo%#ve %te@a@ching%;. The@re $is no@th@ing; &as& mo@re rewarding as educa@ting &and& @emp%o@weri@ng peo@ple. ;I found tea@ching m%o@re interesting tha@n any ot#her %jo@bs. %Do@es thi%s mo@tiv#ate yo@u to be a tea@cher!? %Th#is 30#Days&OfJavaScript &is al@so $the $resu@lt of &love& of tea&ching';
 
 let cleaned = cleanUp;
-let wordList;
 
 cleaned = cleaned.replace(/%/g, '');
 cleaned = cleaned.replace(/@/g, '');
 cleaned = cleaned.replace(/\$/g, '');
 cleaned = cleaned.replace(/#/g, '');
 cleaned = cleaned.replace(/&/g, '');
+cleaned = cleaned.replace(/;/g,'');
 
-console.log(cleaned);
+const wordList = cleaned.split(' ');
+
+const obj = {};
+
+for(let i = 0; i < wordList.length; i++){
+    const currentValue = wordList[i];
+    if(typeof obj[currentValue] === 'undefined'){
+        obj[currentValue] = 0;
+        for(let x = 0; x <  wordList.length; x++){
+            if(currentValue === wordList[x])
+            {
+                obj[currentValue]++;
+            }
+        }
+    }
+}
+
+console.log(cleaned)
 
 //Exercises: Lvl 3 Number 4.
 
@@ -85,4 +104,4 @@ let valueSumm = 0;
 for (i = 0; i < euros.length; i++) {
     valueSumm += Number(euros[i]);
 }
-console.log(valueSumm);
+//console.log(valueSumm);
