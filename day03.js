@@ -193,18 +193,26 @@ function exercisesTwoThirteen(){
 function exercisesTwoFourteen(){
     const years = prompt('Enter the number of years you live:', '100')
 
-    console.log((years*365+25)*24*60*60);
+    const secTillNow = date.getTime();
+
+    date.setFullYear(date.getFullYear()-years);
+
+    const secTillBDay = date.getTime();
+
+    secTillBDay < 1970
+    ?   console.log((secTillNow + Math.abs(secTillBDay))/1000)
+    :   console.log((secTillNow - Math.abs(secTillBDay))/1000);
 }
 
 function exercisesTwoFifteen(){ //accidentally did exercise lvl 3 in this already
-    let month = date.getMonth()<10 ? '0'+date.getMonth():date.getMonth();
-    let day = date.getDay()<10 ? '0'+date.getDay():date.getDay();
-    let hour = date.getHours()<10 ?'0'+date.getHours():date.getHours();
-    let minute = date.getMinutes()<10 ?'0'+date.getMinutes:date.getMinutes();
+    const month = date.getMonth()<10 ? '0'+date.getMonth():date.getMonth();
+    const day = date.getDay()<10 ? '0'+date.getDay():date.getDay();
+    const hour = date.getHours()<10 ?'0'+date.getHours():date.getHours();
+    const minute = date.getMinutes()<10 ?'0'+date.getMinutes:date.getMinutes();
 
     console.log(`${year}-${month}-${day} ${hour}:${minute}`);
     console.log(`${day}-${month}-${year} ${hour}:${minute}`);
     console.log(`${day}/${month}/${year} ${hour}:${minute}`);
 }
 
-console.log(exercisesTwoFifteen());
+console.log(exercisesTwoFourteen());
