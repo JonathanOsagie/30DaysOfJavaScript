@@ -1,5 +1,3 @@
-
-
 const webTechs = [
     'HTML',
     'CSS',
@@ -107,14 +105,13 @@ function exerciseOneNine() {
         for (j = 2; j < i; j++) {
             //console.log("j",j)
             if (i % j === 0) {
-                divide=false;
+                divide = false;
                 break;
-            }else{
-                divide=true;
+            } else {
+                divide = true;
             }
         }
-        if(divide)
-        {
+        if (divide) {
             console.log(i);
         }
     }
@@ -132,11 +129,9 @@ function exerciseOneEleven() {
     let even;
     let odd;
     for (i = 0; i <= 100; i++) {
-        if(i%2===0)
-        {
+        if (i % 2 === 0) {
             even += i;
-        }
-        else{
+        } else {
             odd += i;
         }
     }
@@ -147,11 +142,9 @@ function exerciseOneTwelve() {
     let even;
     let odd;
     for (i = 0; i <= 100; i++) {
-        if(i%2===0)
-        {
+        if (i % 2 === 0) {
             even += i;
-        }
-        else{
+        } else {
             odd += i;
         }
     }
@@ -159,82 +152,78 @@ function exerciseOneTwelve() {
     console.log(array);
 }
 
-function exerciseOneThirteen(){
-    for(i = 0; i<5;i++)
-    {
+function exerciseOneThirteen() {
+    for (i = 0; i < 5; i++) {
         console.log(Math.random());
     }
 }
 
-function exerciseOneFourteen(){
+function exerciseOneFourteen() {
     const array = [];
-    
-    for(i = 0; i<5;i++)
-    {
+
+    for (i = 0; i < 5; i++) {
         let j = Math.random();
-        array.includes(j)
-        ? null : array.push(j);
+        array.includes(j) ?
+            null : array.push(j);
     }
 }
+
 function exerciseOneFifteen(length) { // also two one
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
-   }
-   console.log(result);
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    console.log(result);
 }
 
-function exerciseTwoTwo(){
+function exerciseTwoTwo() {
     let result = '#';
     const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    for ( var i = 0; i < 6; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
-   }
-   console.log(result);
+    for (var i = 0; i < 6; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    console.log(result);
 }
 
-function exerciseTwoThree(){
+function exerciseTwoThree() {
     let firstValue = '';
     let secondValue = '';
     let thirdValue = '';
     const characters = '0123456789';
-    for ( var i = 0; i < 6; i++ ) {
-      //result += characters.charAt(Math.floor(Math.random() * characters.length));
-      firstValue = Math.floor(Math.random()*255);
-      secondValue = Math.floor(Math.random()*255);
-      thirdValue = Math.floor(Math.random()*255);
+    for (var i = 0; i < 6; i++) {
+        //result += characters.charAt(Math.floor(Math.random() * characters.length));
+        firstValue = Math.floor(Math.random() * 255);
+        secondValue = Math.floor(Math.random() * 255);
+        thirdValue = Math.floor(Math.random() * 255);
 
-   }
-   console.log(`rgb(${firstValue},${secondValue},${thirdValue})`);
+    }
+    console.log(`rgb(${firstValue},${secondValue},${thirdValue})`);
 }
 
-function exerciseTwoFour(){
+function exerciseTwoFour() {
     const array = [];
 
-    for(i=0;i<countries.length;i++)
-    {
+    for (i = 0; i < countries.length; i++) {
         array.push(countries[i].toUpperCase);
     }
 }
 
-function exerciseTwoFive(){
+function exerciseTwoFive() {
     const array = [];
 
-    for(i=0;i<countries.length;i++)
-    {
+    for (i = 0; i < countries.length; i++) {
         array.push(countries[i].length);
     }
 }
 
-function exerciseTwoSix(){
+function exerciseTwoSix() {
     const array = [];
-    
-    for(i=0;i<countries.length;i++)
-    {
+
+    for (i = 0; i < countries.length; i++) {
         const subArray = [];
         subArray.push(countries[i]);
-        subArray.push(countries[i].slice(0,3).toUpperCase());
+        subArray.push(countries[i].slice(0, 3).toUpperCase());
         subArray.push(countries[i].length);
         array.push(subArray);
     }
@@ -242,53 +231,43 @@ function exerciseTwoSix(){
 
 }
 
-function exerciseTwoSeven(){
+function exerciseTwoSeven() {
     const array = [];
 
-    for(i=0;i<countries.length;i++)
-    {
-        if(countries[i].includes("land"))
-        {
+    for (i = 0; i < countries.length; i++) {
+        if (countries[i].includes("land")) {
             array.push(countries[i]);
         }
-  
+
     }
-    if(array.length>0 )
-    {
+    if (array.length > 0) {
         console.log(array);
-    }else
-    {
+    } else {
         console.log("All these countries are without land");
     }
 }
 
-function exerciseTwoEight(){
+function exerciseTwoEight() {
     const array = [];
 
-    for(i=0;i<countries.length;i++)
-    {
-        if(countries[i].lastIndexOf('ia') !== -1)
-        {
+    for (i = 0; i < countries.length; i++) {
+        if (countries[i].lastIndexOf('ia') !== -1) {
             array.push(countries[i]);
         }
-  
+
     }
-    if(array.length>0 )
-    {
+    if (array.length > 0) {
         console.log(array);
-    }else
-    {
+    } else {
         console.log("These are countries ends without ia");
     }
 }
 
-function exerciseTwoNine(){
+function exerciseTwoNine() {
     let biggest = "";
 
-    for(i=0;i<countries.length;i++)
-    {
-        if(biggest.length<countries[i].length)
-        {
+    for (i = 0; i < countries.length; i++) {
+        if (biggest.length < countries[i].length) {
             biggest = countries[i];
         }
     }
@@ -296,13 +275,11 @@ function exerciseTwoNine(){
     console.log(biggest);
 }
 
-function exerciseTwoTen(){
+function exerciseTwoTen() {
     const array = [];
 
-    for(i=1;i<countries.length;i++)
-    {
-        if(countries[i].length===5)
-        {
+    for (i = 1; i < countries.length; i++) {
+        if (countries[i].length === 5) {
             array.push(countries[i]);
         }
     }
@@ -310,13 +287,11 @@ function exerciseTwoTen(){
     console.log(array);
 }
 
-function exerciseTwoEleven(){
+function exerciseTwoEleven() {
     let biggest = " a";
 
-    for(i=1;i<webTechs.length;i++)
-    {
-        if(webTechs[i].length>webTechs[i-1].length)
-        {
+    for (i = 1; i < webTechs.length; i++) {
+        if (webTechs[i].length > webTechs[i - 1].length) {
             biggest = webTechs[i];
         }
     }
@@ -324,11 +299,10 @@ function exerciseTwoEleven(){
     console.log(biggest);
 }
 
-function exerciseTwoTwelve(){
+function exerciseTwoTwelve() {
     const array = [];
-    
-    for(i=0;i<webTechs.length;i++)
-    {
+
+    for (i = 0; i < webTechs.length; i++) {
         const subArray = [];
         subArray.push(webTechs[i]);
         subArray.push(webTechs[i].length);
@@ -337,90 +311,79 @@ function exerciseTwoTwelve(){
     console.log(array);
 }
 
-function exerciseTwoThirteen(){
+function exerciseTwoThirteen() {
     let mern = "";
 
-    for(i=0;i<mernStack.length;i++)
-    {
+    for (i = 0; i < mernStack.length; i++) {
         mern += mernStack[i].charAt(0);
     }
     console.log(mern);
 }
 
-function exerciseTwoFourteen(){
-    for(const num of webTechs)
-    {
+function exerciseTwoFourteen() {
+    for (const num of webTechs) {
         console.log(num);
     }
 }
 
-function exerciseTwoFifteen(){
+function exerciseTwoFifteen() {
     const array = [];
-    const fruit =  ['banana', 'orange', 'mango', 'lemon'];
+    const fruit = ['banana', 'orange', 'mango', 'lemon'];
 
-    for(i=1; i<=fruit.length;i++)
-    {
-        array.push(fruit[fruit.length-i]);
+    for (i = 1; i <= fruit.length; i++) {
+        array.push(fruit[fruit.length - i]);
     }
-    for(i=1; i<=array.length;i++)
-    {
+    for (i = 1; i <= array.length; i++) {
         fruit.pop();
     }
-    for(i=0; i<array.length;i++)
-    {
+    for (i = 0; i < array.length; i++) {
         fruit.push(array[i]);
     }
     console.log(fruit);
 }
 
-function exerciseTwoSixteen(){
+function exerciseTwoSixteen() {
     const fullStack = [
         ['HTML', 'CSS', 'JS', 'React'],
         ['Node', 'Express', 'MongoDB']
-      ];
+    ];
 
-      for(const num of fullStack)
-      {
-        for(const numTwo of num){
+    for (const num of fullStack) {
+        for (const numTwo of num) {
             console.log(numTwo);
         }
-      }
+    }
 }
-function exerciseThreeOne(){
-    const array = countries;
-    console.log(array);
-    array.sort();
-    console.log(array, countries);
-    //not sure if this satisfies 3.2
+
+function exerciseThreeOne() {
+    const array = countries.map((x) => x); //const array = [...countries]
+    const sortedArray = array.sort();
+    console.log(array, sortedArray);
 }
 
 
-function exerciseThreeThree(){
+function exerciseThreeThree() {
     webTechs.sort();
     mernStack.sort();
 }
 
-function exerciseThreeFour(){
+function exerciseThreeFour() {
     const array = [];
 
-    for(i=0;i<countries.length;i++)
-    {
-        if(countries[i].includes("land"))
-        {
+    for (i = 0; i < countries.length; i++) {
+        if (countries[i].includes("land")) {
             array.push(countries[i]);
-            countries.splice(i,1);
+            countries.splice(i, 1);
         }
     }
-    console.log(array,countries)
+    console.log(array, countries)
 }
 
-function exerciseThreeFive(){
+function exerciseThreeFive() {
     let biggest = "";
 
-    for(i=0;i<countries.length;i++)
-    {
-        if(biggest.length<countries[i].length)
-        {
+    for (i = 0; i < countries.length; i++) {
+        if (biggest.length < countries[i].length) {
             biggest = countries[i];
         }
     }
@@ -428,57 +391,54 @@ function exerciseThreeFive(){
     console.log(biggest);
 }
 
-function exerciseThreeSeven(){
+function exerciseThreeSeven() {
     const array = [];
 
-    for(i=1;i<countries.length;i++)
-    {
-        if(countries[i].length===4)
-        {
+    for (i = 1; i < countries.length; i++) {
+        if (countries[i].length === 4) {
             array.push(countries[i]);
         }
     }
-    for(i = 0; i<array.length;i++)
-    {
-        countries.includes(array[i])
-        ?countries.splice(i,1):null;
+    for (i = 0; i < array.length; i++) {
+        countries.includes(array[i]) ?
+            countries.splice(i, 1) : null;
     }
     console.log(array);
 }
 
-function exerciseThreeEight(){
-    const array = [];
+function exerciseThreeEight() { //do this without for
+    // const array = [];
 
-    for(i=1;i<countries.length;i++)
-    {
-        // if(countries[i].includes(" ("))
-        // {
-        //     countries[i]=countries[i].replace(" ","-") //why doesnt it replace?   
-        //     console.log(countries[i]);
-        // }
-        if(countries[i].includes(" "))
-        {
-            array.push(countries[i]);
-        }
-    }
+    // for(i=1;i<countries.length;i++)
+    // {
+    // if(countries[i].includes(" ("))
+    // {
+    //     countries[i]=countries[i].replace(" ","-") //why doesnt it replace?   
+    //     console.log(countries[i]);
+    // }
+    //     if(countries[i].includes(" "))
+    //     {
+    //         array.push(countries[i]);
+    //     }
+    // }
 
-    for(i = 0; i<array.length;i++)
-    {
-        countries.includes(array[i])
-        ?countries.splice(i,1):null;
-    }
+    // for(i = 0; i<array.length;i++)
+    // {
+    //     countries.includes(array[i])
+    //     ?countries.splice(i,1):null;
+    // }
+
+    const array = countries.filter(country => country.includes(" "))
 
     console.log(array);
 }
-console.log(exerciseThreeEight());
 
-
-function exerciseThreeNine(){
+function exerciseThreeNine() {
     const array = countries.reverse();
-    for(i = 0; i<countries.length; i++)
-    {
+    for (i = 0; i < countries.length; i++) {
         array[i] = array[i].toUpperCase();
     }
     console.log(array);
 }
 
+console.log(exerciseThreeOne());
