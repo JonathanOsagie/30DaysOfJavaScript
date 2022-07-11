@@ -1,16 +1,4 @@
-const countries = [
-    'Albania',
-    'Bolivia',
-    'Canada',
-    'Denmark',
-    'Ethiopia',
-    'Finland',
-    'Germany',
-    'Hungary',
-    'Ireland',
-    'Japan',
-    'Kenya'
-];
+
 
 const webTechs = [
     'HTML',
@@ -197,4 +185,298 @@ function exerciseOneFifteen(length) { // also two one
    console.log(result);
 }
 
-console.log(exerciseOneFifteen(6));
+function exerciseTwoTwo(){
+    let result = '#';
+    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    for ( var i = 0; i < 6; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+   }
+   console.log(result);
+}
+
+function exerciseTwoThree(){
+    let firstValue = '';
+    let secondValue = '';
+    let thirdValue = '';
+    const characters = '0123456789';
+    for ( var i = 0; i < 6; i++ ) {
+      //result += characters.charAt(Math.floor(Math.random() * characters.length));
+      firstValue = Math.floor(Math.random()*255);
+      secondValue = Math.floor(Math.random()*255);
+      thirdValue = Math.floor(Math.random()*255);
+
+   }
+   console.log(`rgb(${firstValue},${secondValue},${thirdValue})`);
+}
+
+function exerciseTwoFour(){
+    const array = [];
+
+    for(i=0;i<countries.length;i++)
+    {
+        array.push(countries[i].toUpperCase);
+    }
+}
+
+function exerciseTwoFive(){
+    const array = [];
+
+    for(i=0;i<countries.length;i++)
+    {
+        array.push(countries[i].length);
+    }
+}
+
+function exerciseTwoSix(){
+    const array = [];
+    
+    for(i=0;i<countries.length;i++)
+    {
+        const subArray = [];
+        subArray.push(countries[i]);
+        subArray.push(countries[i].slice(0,3).toUpperCase());
+        subArray.push(countries[i].length);
+        array.push(subArray);
+    }
+    console.log(array);
+
+}
+
+function exerciseTwoSeven(){
+    const array = [];
+
+    for(i=0;i<countries.length;i++)
+    {
+        if(countries[i].includes("land"))
+        {
+            array.push(countries[i]);
+        }
+  
+    }
+    if(array.length>0 )
+    {
+        console.log(array);
+    }else
+    {
+        console.log("All these countries are without land");
+    }
+}
+
+function exerciseTwoEight(){
+    const array = [];
+
+    for(i=0;i<countries.length;i++)
+    {
+        if(countries[i].lastIndexOf('ia') !== -1)
+        {
+            array.push(countries[i]);
+        }
+  
+    }
+    if(array.length>0 )
+    {
+        console.log(array);
+    }else
+    {
+        console.log("These are countries ends without ia");
+    }
+}
+
+function exerciseTwoNine(){
+    let biggest = "";
+
+    for(i=0;i<countries.length;i++)
+    {
+        if(biggest.length<countries[i].length)
+        {
+            biggest = countries[i];
+        }
+    }
+
+    console.log(biggest);
+}
+
+function exerciseTwoTen(){
+    const array = [];
+
+    for(i=1;i<countries.length;i++)
+    {
+        if(countries[i].length===5)
+        {
+            array.push(countries[i]);
+        }
+    }
+
+    console.log(array);
+}
+
+function exerciseTwoEleven(){
+    let biggest = " a";
+
+    for(i=1;i<webTechs.length;i++)
+    {
+        if(webTechs[i].length>webTechs[i-1].length)
+        {
+            biggest = webTechs[i];
+        }
+    }
+
+    console.log(biggest);
+}
+
+function exerciseTwoTwelve(){
+    const array = [];
+    
+    for(i=0;i<webTechs.length;i++)
+    {
+        const subArray = [];
+        subArray.push(webTechs[i]);
+        subArray.push(webTechs[i].length);
+        array.push(subArray);
+    }
+    console.log(array);
+}
+
+function exerciseTwoThirteen(){
+    let mern = "";
+
+    for(i=0;i<mernStack.length;i++)
+    {
+        mern += mernStack[i].charAt(0);
+    }
+    console.log(mern);
+}
+
+function exerciseTwoFourteen(){
+    for(const num of webTechs)
+    {
+        console.log(num);
+    }
+}
+
+function exerciseTwoFifteen(){
+    const array = [];
+    const fruit =  ['banana', 'orange', 'mango', 'lemon'];
+
+    for(i=1; i<=fruit.length;i++)
+    {
+        array.push(fruit[fruit.length-i]);
+    }
+    for(i=1; i<=array.length;i++)
+    {
+        fruit.pop();
+    }
+    for(i=0; i<array.length;i++)
+    {
+        fruit.push(array[i]);
+    }
+    console.log(fruit);
+}
+
+function exerciseTwoSixteen(){
+    const fullStack = [
+        ['HTML', 'CSS', 'JS', 'React'],
+        ['Node', 'Express', 'MongoDB']
+      ];
+
+      for(const num of fullStack)
+      {
+        for(const numTwo of num){
+            console.log(numTwo);
+        }
+      }
+}
+function exerciseThreeOne(){
+    const array = countries;
+    console.log(array);
+    array.sort();
+    console.log(array, countries);
+    //not sure if this satisfies 3.2
+}
+
+function exerciseThreeThree(){
+    webTechs.sort();
+    mernStack.sort();
+}
+
+function exerciseThreeFour(){
+    const array = [];
+
+    for(i=0;i<countries.length;i++)
+    {
+        if(countries[i].includes("land"))
+        {
+            array.push(countries[i]);
+            countries.splice(i,1);
+        }
+    }
+    console.log(array,countries)
+}
+
+function exerciseThreeFive(){
+    let biggest = "";
+
+    for(i=0;i<countries.length;i++)
+    {
+        if(biggest.length<countries[i].length)
+        {
+            biggest = countries[i];
+        }
+    }
+
+    console.log(biggest);
+}
+
+function exerciseThreeSeven(){
+    const array = [];
+
+    for(i=1;i<countries.length;i++)
+    {
+        if(countries[i].length===4)
+        {
+            array.push(countries[i]);
+        }
+    }
+    for(i = 0; i<array.length;i++)
+    {
+        countries.includes(array[i])
+        ?countries.splice(i,1):null;
+    }
+    console.log(array);
+}
+
+function exerciseThreeEight(){
+    const array = [];
+
+    for(i=1;i<countries.length;i++)
+    {
+        if(countries[i].includes(" ("))
+        {
+            countries[i].replace(" (","-") //why doesnt it replace?   
+            console.log(countries[i]);
+        }
+        if(countries[i].includes(" "))
+        {
+            array.push(countries[i]);
+        }
+    }
+
+    for(i = 0; i<array.length;i++)
+    {
+        countries.includes(array[i])
+        ?countries.splice(i,1):null;
+    }
+
+    console.log(array);
+}
+
+function exerciseThreeNine(){
+    const array = countries.reverse();
+    for(i = 0; i<countries.length; i++)
+    {
+        array[i] = array[i].toUpperCase();
+    }
+    console.log(array);
+}
+
+console.log(exerciseThreeNine());
