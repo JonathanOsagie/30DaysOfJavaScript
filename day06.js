@@ -394,6 +394,7 @@ function exerciseThreeOne(){
     //not sure if this satisfies 3.2
 }
 
+
 function exerciseThreeThree(){
     webTechs.sort();
     mernStack.sort();
@@ -450,11 +451,11 @@ function exerciseThreeEight(){
 
     for(i=1;i<countries.length;i++)
     {
-        if(countries[i].includes(" ("))
-        {
-            countries[i].replace(" (","-") //why doesnt it replace?   
-            console.log(countries[i]);
-        }
+        // if(countries[i].includes(" ("))
+        // {
+        //     countries[i]=countries[i].replace(" ","-") //why doesnt it replace?   
+        //     console.log(countries[i]);
+        // }
         if(countries[i].includes(" "))
         {
             array.push(countries[i]);
@@ -469,6 +470,8 @@ function exerciseThreeEight(){
 
     console.log(array);
 }
+console.log(exerciseThreeEight());
+
 
 function exerciseThreeNine(){
     const array = countries.reverse();
@@ -479,4 +482,3 @@ function exerciseThreeNine(){
     console.log(array);
 }
 
-console.log(exerciseThreeNine());
