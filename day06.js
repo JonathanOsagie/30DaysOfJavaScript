@@ -356,11 +356,10 @@ function exerciseTwoSixteen() {
 }
 
 function exerciseThreeOne() {
-    const array = countries.map((x) => x); //const array = [...countries]
+    const array = countries.map((x) => x); //const array = [hg,...countries,gh]
     const sortedArray = array.sort();
     console.log(array, sortedArray);
 }
-
 
 function exerciseThreeThree() {
     webTechs.sort();

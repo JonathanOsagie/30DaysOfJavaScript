@@ -184,6 +184,20 @@ function sumOfNumber(a=5,b=0){
     console.log(sum);
 }
 
+const sumOf = (a=5,b=5) => {
+    a>b
+    ?null
+    :[a,b]=[b,a];
+    let sum = 0;
+    for(i=0;i<=(a-b);i++)
+    {
+        sum += b + i;
+    }
+    console.log(sum);
+}
+
+console.log(sumOf())
+
 function sumOfEven(a=5,b=0){
     a>b
     ?null
@@ -224,4 +238,3 @@ function exerciseTeoFourteen(){
     }
     console.log(sum);
 }
-console.log(exerciseTeoFourteen(1,2,8,4))
