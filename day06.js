@@ -190,7 +190,6 @@ function exerciseTwoThree() {
     let firstValue = '';
     let secondValue = '';
     let thirdValue = '';
-    const characters = '0123456789';
     for (var i = 0; i < 6; i++) {
         //result += characters.charAt(Math.floor(Math.random() * characters.length));
         firstValue = Math.floor(Math.random() * 255);

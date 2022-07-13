@@ -150,9 +150,9 @@ function capitalizeArray(array) {
     if (Array.isArray(array)) {
         const out = [];
         for (i = 0; i < array.length; i++) {
-           out.push(array[i].toUpperCase());
+            out.push(array[i].toUpperCase());
         }
-    
+
         return out;
     } else {
         console.log("Please enter an array");
@@ -165,49 +165,41 @@ function addItem(item) {
     return array.push(item);
 }
 
-function removeItem(item){
-    const array = ["h","i","t","j"]
+function removeItem(item) {
+    const array = ["h", "i", "t", "j"]
 
-    array.splice(array.indexOf(item),1);
+    array.splice(array.indexOf(item), 1);
     console.log(array);
 }
 
-function sumOfNumber(a=5,b=0){
-    a>b
-    ?null
-    :[a,b]=[b,a];
+function sumOfNumber(a = 5, b = 0) {
+    a > b ?
+        null : [a, b] = [b, a];
     let sum = 0;
-    for(i=0;i<=(a-b);i++)
-    {
+    for (i = 0; i <= (a - b); i++) {
         sum += b + i;
     }
     console.log(sum);
 }
 
-function sumOfEven(a=5,b=0){
-    a>b
-    ?null
-    :[a,b]=[b,a];
+function sumOfEven(a = 5, b = 0) {
+    a > b ?
+        null : [a, b] = [b, a];
     let sum = 0;
-    for(i=0;i<=(a-b);i++)
-    {
-        if((b+i)%2===0)
-        {
+    for (i = 0; i <= (a - b); i++) {
+        if ((b + i) % 2 === 0) {
             sum += b + i;
         }
     }
     console.log(sum);
 }
 
-function sumOfOdd(a=5,b=0){
-    a>b
-    ?null
-    :[a,b]=[b,a];
+function sumOfOdd(a = 5, b = 0) {
+    a > b ?
+        null : [a, b] = [b, a];
     let sum = 0;
-    for(i=0;i<=(a-b);i++)
-    {
-        if((b+i)%2!==0)
-        {
+    for (i = 0; i <= (a - b); i++) {
+        if ((b + i) % 2 !== 0) {
             sum += b + i;
         }
     }
@@ -216,14 +208,106 @@ function sumOfOdd(a=5,b=0){
 
 // evensAndOdds 
 
-function exerciseTeoFourteen(){
+function exerciseTeoFourteen() {
     let sum = 0;
-    for(const num of arguments)
-    {
+    for (const num of arguments) {
         sum += num;
     }
     console.log(sum);
 }
-console.log(exerciseTeoFourteen(1,2,3,4))
 
-//www.freecodecamp.org/news/how-to-clone-an-array-in-javascript-1d3183468f6a/
+function userIdGeneratedByUser() { // also two one
+    const length = prompt("Enter length", "6");
+    const amount = prompt("enter amount", "2");
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let ii = 0; ii < amount; ii++) {
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        console.log(result);
+        result = '';
+    }
+}
+
+function rgbColorGenerator() {
+    let firstValue = '';
+    let secondValue = '';
+    let thirdValue = '';
+    for (var i = 0; i < 6; i++) {
+        firstValue = Math.floor(Math.random() * 255);
+        secondValue = Math.floor(Math.random() * 255);
+        thirdValue = Math.floor(Math.random() * 255);
+
+    }
+    return `rgb(${firstValue},${secondValue},${thirdValue})`;
+}
+
+
+function randomHexaNumberGenerator() {
+    let result = '#';
+    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < 6; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+
+function arrayOfRgbColors(amount = 5) {
+    const array = [];
+    for (i = 0; i < amount; i++) {
+        array.push(rgbColorGenerator());
+    }
+    console.log(array);
+}
+
+function arrayOfHexaColors(amount = 5) {
+    const array = [];
+    for (i = 0; i < amount; i++) {
+        array.push(randomHexaNumberGenerator());
+    }
+    console.log(array);
+}
+
+function generateColors(type = "hexa", amount = 5) {
+    const array = [];
+    if (type === "hexa") {
+        for (i = 0; i < amount; i++) {
+            array.push(randomHexaNumberGenerator());
+        }
+    }else if(type === "rgb") {
+        for (i = 0; i < amount; i++) {
+            array.push(rgbColorGenerator());
+        }
+    } else {
+        console.log("pls enter a valid type")
+    }
+    console.log(array);
+}
+
+function sumOfArrayItems(array = [1,2,3,4,5]){
+    let numberTypes = true;
+    
+    for(i=0;i<array.length;i++)
+    {
+        if(typeof array[i]!== "number"){
+            numberTypes = false;
+        }
+    }
+
+    if(numberTypes)
+    {
+        let sum = 0;
+        for(i=0;i<array.length;i++)
+        {
+            sum += array[i];
+        }
+        console.log("Sum,Average", sum, sum/array.length)
+    }else{
+        console.log("Your array seems to include a non number!")
+    }
+}
+
+
+
+console.log(sumOfArrayItems())
