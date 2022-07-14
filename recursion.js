@@ -11,12 +11,40 @@
 // }
 // ```
  
+
 // Die `children`-Property enthält weitere Objects desselben Schemas, auf diese Weise ergibt sich ein hierarchischer "Baum" (i.e. ein mehrdimensionales Array) von Objects mit gleichen Properties
 // Die Properties eines jeweiligen Objects müssen folgende Werte enthalten:
 // `level`: Die hierarchische Stufe im "Baum", in der das Object sich befindet. Das oberste Level beginnt bei 0, das nächste darunter hat 1, und so weiter.
 // `value`: Eine zufällige Dezimalzahl. Sie darf allerdings nicht niedriger sein als das Level.
 // `children`: Ein Array mit weiteren Instanzen desselben Interface.
  
+let a = 0;
+let b = 0;
+
+const module = (function(maxLevels=4,inLevel=2){
+    let obj = {};
+    a=maxLevels-1;
+    const array = [];
+    const response = [];
+    for(i=0; i<maxLevels;i++)
+    {
+        b=a+Math.random();
+       
+        obj = {
+            level: a--,
+            value: b,
+            children: obj
+        };
+    }
+    response.push(obj);
+    // for(i=0;i<inLevel;i++)
+    // {
+    //     array.push(obj);
+    // }
+    console.log(response);
+})();
+
+// console.log(module);
 // Erstelle eine *Self-Invoking function*, die ein mehrdimensionales Array dieser Objects generiert und in eine Variable `response` speichert.
 // Die Funktion muss Parameter unterstützen, um folgende Faktoren bei der Generierung des Arrays beeinflussen zu können:
 // • Anzahl von Objects, die in jedes Level generiert werden (default-Wert = 2)
