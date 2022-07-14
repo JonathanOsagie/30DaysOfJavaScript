@@ -17,32 +17,29 @@
 // `level`: Die hierarchische Stufe im "Baum", in der das Object sich befindet. Das oberste Level beginnt bei 0, das nächste darunter hat 1, und so weiter.
 // `value`: Eine zufällige Dezimalzahl. Sie darf allerdings nicht niedriger sein als das Level.
 // `children`: Ein Array mit weiteren Instanzen desselben Interface.
- 
-let a = 0;
-let b = 0;
 
-const module = (function(maxLevels=4,inLevel=2){
-    let obj = {};
-    a=maxLevels-1;
-    const array = [];
-    const response = [];
-    for(i=0; i<maxLevels;i++)
+const global = [];
+function repeat(max=4, anz=2){
+    let a=max;
+    a--;
+    let b = a+Math.random();
+    const array = Array(anz);
+    array.fill("x");
+    if(max>0)
     {
-        b=a+Math.random();
-       
         obj = {
-            level: a--,
-            value: b,
-            children: obj
-        };
+            lvl:a,
+            vla:b,
+            children: array.map(() => {return global[0]})
+        }
+        //global.push(obj);
+        global.unshift(obj);
+        repeat(a);
     }
-    response.push(obj);
-    // for(i=0;i<inLevel;i++)
-    // {
-    //     array.push(obj);
-    // }
-    console.log(response);
-})();
+    // return global;
+};
+console.log(repeat(10,5),global);
+
 
 // console.log(module);
 // Erstelle eine *Self-Invoking function*, die ein mehrdimensionales Array dieser Objects generiert und in eine Variable `response` speichert.
