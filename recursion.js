@@ -20,25 +20,23 @@
 
 const global = [];
 function repeat(max=4, anz=2){
-    let a=max;
-    a--;
-    let b = a+Math.random();
+    max--;
     const array = Array(anz);
     array.fill("x");
-    if(max>0)
+    if(max>=0)
     {
         obj = {
-            lvl:a,
-            vla:b,
+            level:max,
+            value:max+Math.random(),
             children: array.map(() => {return global[0]})
         }
         //global.push(obj);
         global.unshift(obj);
-        repeat(a);
+        repeat(max);
     }
     // return global;
 };
-console.log(repeat(10,5),global);
+console.log(repeat(),global);
 
 
 // console.log(module);
