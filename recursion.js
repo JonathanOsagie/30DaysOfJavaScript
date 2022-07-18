@@ -19,42 +19,45 @@
 
 
 
+
+// function repeatTwo(maxLevel = 4, childAnz = 2) {
+//     if (i < maxLevel-1) {
+//         if (!global.includes(obj)) {global.push(obj);} 
+//         i++;
+//         if (ii < childAnz) {
+//             obj = {
+//                 level: i,
+//                 value: i + Math.random(),
+//                 children: null
+//             };
+//             ii++;
+//             i--;
+//             repeatTwo();
+//         }
+//         ii = 0;
+//         repeatTwo();
+//     }else{
+//         for(iii=0;iii<global.length;iii++)
+//         {
+//             global[iii].children = global.filter(item => item.level===global[iii].level+1 ?item:null);
+//         }
+//     }
+// }
+
+
+
 const global = [];
 let i = 0;
 let ii = 0;
 let obj = {
     level: i,
     value: i + Math.random(),
-    children: global
+    children: null
 };
 
-function repeatTwo(maxLevel = 4, childAnz = 2) {
-    if (i < maxLevel-1) {
-        if (!global.includes(obj)) {global.push(obj);} 
-        i++;
-        if (ii < childAnz) {
-            obj = {
-                level: i,
-                value: i + Math.random(),
-                children: global
-            };
-            ii++;
-            i--;
-            repeatTwo();
-        }
-        ii = 0;
-        repeatTwo();
-    }else{
-        for(iii=0;iii<global.length;iii++)
-        {
-            global[iii].children = global.filter(item => item.level===global[iii].level+1 ?item:null);
-        }
-    }
-}
-
-
 function repeatExponential(maxLevel = 4, childAnz = 2){
-    let a = childAnz;
+    let expo = childAnz;
+    let array = [];
 
     if (i < maxLevel-1) {
         if (!global.includes(obj)) {global.push(obj);} 
@@ -63,26 +66,22 @@ function repeatExponential(maxLevel = 4, childAnz = 2){
             obj = {
                 level: i,
                 value: i + Math.random(),
-                children: global
+                children: null
             };
             ii++;
             i--;
-            repeatExponential(maxLevel,a);
+            repeatExponential(maxLevel,expo);
         }
         ii = 0;
-        a= childAnz*2;
-        repeatExponential(maxLevel,a);
+        expo = childAnz*2;
+        repeatExponential(maxLevel,expo);
+
     }else{
-        for(iii=0;iii<global.length;iii++)
-        {
-            global[iii].children = global.filter(item => item.level===global[iii].level+1 ?item:null);
-            console.log(global.filter(item => item.level===global[iii].level+1 ?item:null));
-        }
+        console.log("Why does this repeat?");
     }
 }
 
-repeatExponential();
-console.log(global);
+console.log(repeatExponential(),global);
 
 // function repeat(max = 4, anz = 2) {
 //     max--;
