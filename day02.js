@@ -89,7 +89,7 @@ for(let i = 0; i < wordList.length; i++){
     }
 }
 
-console.log(cleaned)
+console.log(obj);
 
 //Exercises: Lvl 3 Number 4.
 

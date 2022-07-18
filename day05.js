@@ -72,7 +72,7 @@ function exerciseOneSix() {
             obj[currentValue] = currentValue;
         }
     }
-    console.log(obj);
+    console.log("where",obj, "what");
 
     //1.15
     itCompanies.sort();
@@ -193,4 +193,4 @@ function exerciseThreeTwo(){
     :console.log(countries.slice(0,(countries.length/2)+1), countries.slice((countries.length/2)+1)) ;
 }
 
-console.log(exerciseThreeTwo());
+console.log(tire());
