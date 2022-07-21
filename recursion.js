@@ -193,21 +193,37 @@ const response = (function binaryTreeGeneration(maxLevel = 4, childAnz = 2, curr
             repeat.push(obj = {
                 level: currentLevel,
                 value: currentLevel + Math.random(),
-                children: binaryTreeGeneration(maxLevel, childAnz, level, false)
+                children: binaryTreeGeneration(maxLevel, childAnz, level)
             });
         }
         return repeat;
 })();
 
 // ## 2. Berechne die Summe der values aller Objekte in ihrer Hierarchie
-function calc(tree) {
-    
-    const array = tree.map((obj) => { 
-        return obj.children[0].value;
-    });
-    console.log(array);
+console.log(response.length)
+function gettingCurrentObject(){
+    for(i=0; i<response.length;i++)
+    {
+        const currentobj = response[i];
+        currentobj.subTotal = calc(currentobj);
+        console.log(currentobj);
+    }
 }
-console.log(calc(response));
+gettingCurrentObject();
+
+function calc(obj) {
+    
+        let sum = 0;
+        for(let ii=0; ii<obj.children.length;ii++)
+        {
+            sum += obj.children[ii].value;
+        }
+        return sum;
+    //console.log(array);
+    // die summe aller children in einer ebene
+    //diese summe dann addieren zum value vom parent
+}
+console.log(response);
 
 // ### 2.1 subTotal jedes Objects
 // Füge jedem Object in dem mehrdimensionalen Array eine weitere Eigenschaft hinzu:
