@@ -183,50 +183,31 @@
 //   }
 // ]
 // ```
-let global = [];
-const response = (function binaryTreeGeneration(maxLevel = 4, childAnz = 2, currentLevel = 0, first = true){
-    if(currentLevel === 0) {
-        return [
-            {
+const response = (function binaryTreeGeneration(maxLevel = 4, childAnz = 2, currentLevel = 0){
+    if(currentLevel === maxLevel) {
+        return [];
+    }
+        const repeat = [];
+        const level = currentLevel +1;
+        for (let j = 0; j < childAnz; j++) {
+            repeat.push(obj = {
                 level: currentLevel,
                 value: currentLevel + Math.random(),
-                children: binaryTreeGeneration(maxLevel, childAnz, ++currentLevel, true)
-            }
-        ];
-    }
-
-    if(currentLevel === maxLevel) return;
-
-    const repeat = [];
-    const level =  first ? 1 : ++currentLevel;
-    for (let j = 0; j < childAnz; j++) {
-        repeat.push({
-            level: currentLevel,
-            value: currentLevel + Math.random(),
-            children: binaryTreeGeneration(maxLevel, childAnz, level, false)
-        });
-    }
-    global = [...repeat];
-    return repeat;
+                children: binaryTreeGeneration(maxLevel, childAnz, level, false)
+            });
+        }
+        return repeat;
 })();
-console.log(response, global);
 
 // ## 2. Berechne die Summe der values aller Objekte in ihrer Hierarchie
-function calc() {
-    const object = {};
-    for (i = 0; i < global.length; i++) {
-        const currentLevel = global[i].level;
-        if (typeof object[currentLevel] === 'undefined') {
-            object[currentLevel] = 0;
-            for (ii = 0; ii < global.length; ii++) {
-                if (currentLevel === global[ii].level) {
-                    object[currentLevel] += global[ii].value;
-                }
-            }
-        }
-    }
-    console.log(object);
+function calc(tree) {
+    
+    const array = tree.map((obj) => { 
+        return obj.children[0].value;
+    });
+    console.log(array);
 }
+console.log(calc(response));
 
 // ### 2.1 subTotal jedes Objects
 // Füge jedem Object in dem mehrdimensionalen Array eine weitere Eigenschaft hinzu:
