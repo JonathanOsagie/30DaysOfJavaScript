@@ -46,42 +46,74 @@
 
 
 
-const global = [];
-let i = 0;
-let ii = 0;
-let obj = {
-    level: i,
-    value: i + Math.random(),
-    children: null
-};
+// const global = [];
+// let i = 0;
+// let obj = {
+//     level: i,
+//     value: i + Math.random(),
+//     children: null
+// };
+// global.push(obj);
+// const repeat = (function repeatExponential(maxLevel = 4, childAnz = 2) {
+//     let array = [];
+//     let expo = childAnz;
 
-function repeatExponential(maxLevel = 4, childAnz = 2){
-    let expo = childAnz;
-    let array = [];
+//     if (i > maxLevel-2) {
+//         array = [...global];
+//         array.shift();
+//         for(ii = 0; ii<global.length;ii++)
+//         {  
+//             for(iii=0;iii<2;iii++)
+//             {
+//                 global[ii].children = [array[ii]]; 
+//             }
 
-    if (i < maxLevel-1) {
-        if (!global.includes(obj)) {global.push(obj);} 
-        i++;
-        if (ii < childAnz) {
-            obj = {
-                level: i,
-                value: i + Math.random(),
-                children: null
-            };
-            ii++;
-            i--;
-            repeatExponential(maxLevel,expo);
-        }
-        ii = 0;
-        expo = childAnz*2;
-        repeatExponential(maxLevel,expo);
+//         }
+//         console.log(array,global);
 
-    }else{
-        console.log("Why does this repeat?");
-    }
-}
+//     } else {
+//         i++;
+//         for(ii = 0; ii<childAnz;ii++){
+//                 obj = {
+//                     level: i,
+//                     value: i + Math.random(),
+//                     children: null
+//                 };
+//                 if (!global.includes(obj)) {
+//                     global.push(obj);
+//                 }
+//             }
+           
+//         repeatExponential(maxLevel, childAnz * 2);
+//         }
+// })();
 
-console.log(repeatExponential(),global);
+// const binaryTreeGeneration = (maxLevel = 3, childAnz = 2, currentLevel = 0, first = true) => {
+//     if(currentLevel === 0) {
+//         return [
+//             {
+//                 level: currentLevel,
+//                 value: currentLevel + Math.random(),
+//                 children: binaryTreeGeneration(maxLevel, childAnz, ++currentLevel, true)
+//             }
+//         ];
+//     }
+
+//     if(currentLevel === maxLevel) return;
+
+//     const response = [];
+//     const level =  first ? 1 : ++currentLevel;
+//     for (let j = 0; j < childAnz; j++) {
+//         response.push({
+//             level: currentLevel,
+//             value: currentLevel + Math.random(),
+//             children: binaryTreeGeneration(maxLevel, childAnz, level, false)
+//         });
+//     }
+//     return response;
+// };
+
+
 
 // function repeat(max = 4, anz = 2) {
 //     max--;
@@ -151,21 +183,44 @@ console.log(repeatExponential(),global);
 //   }
 // ]
 // ```
+let global = [];
+const response = (function binaryTreeGeneration(maxLevel = 4, childAnz = 2, currentLevel = 0, first = true){
+    if(currentLevel === 0) {
+        return [
+            {
+                level: currentLevel,
+                value: currentLevel + Math.random(),
+                children: binaryTreeGeneration(maxLevel, childAnz, ++currentLevel, true)
+            }
+        ];
+    }
+
+    if(currentLevel === maxLevel) return;
+
+    const repeat = [];
+    const level =  first ? 1 : ++currentLevel;
+    for (let j = 0; j < childAnz; j++) {
+        repeat.push({
+            level: currentLevel,
+            value: currentLevel + Math.random(),
+            children: binaryTreeGeneration(maxLevel, childAnz, level, false)
+        });
+    }
+    global = [...repeat];
+    return repeat;
+})();
+console.log(response, global);
 
 // ## 2. Berechne die Summe der values aller Objekte in ihrer Hierarchie
-function calc()
-{
+function calc() {
     const object = {};
-    for(i = 0; i<global.length; i++)
-    {
+    for (i = 0; i < global.length; i++) {
         const currentLevel = global[i].level;
-        if(typeof object[currentLevel] === 'undefined'){
+        if (typeof object[currentLevel] === 'undefined') {
             object[currentLevel] = 0;
-            for(ii = 0; ii < global.length; ii++)
-            {
-                if(currentLevel === global[ii].level)
-                {
-                    object[currentLevel]+= global[ii].value;
+            for (ii = 0; ii < global.length; ii++) {
+                if (currentLevel === global[ii].level) {
+                    object[currentLevel] += global[ii].value;
                 }
             }
         }
@@ -181,17 +236,14 @@ function calc()
 // }
 // ```
 
-function addSubTotal(){
-    for(i = 0; i<global.length; i++)
-    {
-            global[i].subTotal = 0;
-            for(ii = 0; ii < global.length; ii++)
-            {
-                if(global[i].level<global[ii].level)
-                {
-                    global[i].subTotal+= global[ii].value;   
-                }
-            } 
+function addSubTotal() {
+    for (i = 0; i < global.length; i++) {
+        global[i].subTotal = 0;
+        for (ii = 0; ii < global.length; ii++) {
+            if (global[i].level < global[ii].level) {
+                global[i].subTotal += global[ii].value;
+            }
+        }
     }
     console.log(obj);
 }
