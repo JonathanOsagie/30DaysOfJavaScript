@@ -17,128 +17,6 @@
 // `value`: Eine zufällige Dezimalzahl. Sie darf allerdings nicht niedriger sein als das Level.
 // `children`: Ein Array mit weiteren Instanzen desselben Interface.
 
-
-
-
-// function repeatTwo(maxLevel = 4, childAnz = 2) {
-//     if (i < maxLevel-1) {
-//         if (!global.includes(obj)) {global.push(obj);} 
-//         i++;
-//         if (ii < childAnz) {
-//             obj = {
-//                 level: i,
-//                 value: i + Math.random(),
-//                 children: null
-//             };
-//             ii++;
-//             i--;
-//             repeatTwo();
-//         }
-//         ii = 0;
-//         repeatTwo();
-//     }else{
-//         for(iii=0;iii<global.length;iii++)
-//         {
-//             global[iii].children = global.filter(item => item.level===global[iii].level+1 ?item:null);
-//         }
-//     }
-// }
-
-
-
-// const global = [];
-// let i = 0;
-// let obj = {
-//     level: i,
-//     value: i + Math.random(),
-//     children: null
-// };
-// global.push(obj);
-// const repeat = (function repeatExponential(maxLevel = 4, childAnz = 2) {
-//     let array = [];
-//     let expo = childAnz;
-
-//     if (i > maxLevel-2) {
-//         array = [...global];
-//         array.shift();
-//         for(ii = 0; ii<global.length;ii++)
-//         {  
-//             for(iii=0;iii<2;iii++)
-//             {
-//                 global[ii].children = [array[ii]]; 
-//             }
-
-//         }
-//         console.log(array,global);
-
-//     } else {
-//         i++;
-//         for(ii = 0; ii<childAnz;ii++){
-//                 obj = {
-//                     level: i,
-//                     value: i + Math.random(),
-//                     children: null
-//                 };
-//                 if (!global.includes(obj)) {
-//                     global.push(obj);
-//                 }
-//             }
-           
-//         repeatExponential(maxLevel, childAnz * 2);
-//         }
-// })();
-
-// const binaryTreeGeneration = (maxLevel = 3, childAnz = 2, currentLevel = 0, first = true) => {
-//     if(currentLevel === 0) {
-//         return [
-//             {
-//                 level: currentLevel,
-//                 value: currentLevel + Math.random(),
-//                 children: binaryTreeGeneration(maxLevel, childAnz, ++currentLevel, true)
-//             }
-//         ];
-//     }
-
-//     if(currentLevel === maxLevel) return;
-
-//     const response = [];
-//     const level =  first ? 1 : ++currentLevel;
-//     for (let j = 0; j < childAnz; j++) {
-//         response.push({
-//             level: currentLevel,
-//             value: currentLevel + Math.random(),
-//             children: binaryTreeGeneration(maxLevel, childAnz, level, false)
-//         });
-//     }
-//     return response;
-// };
-
-
-
-// function repeat(max = 4, anz = 2) {
-//     max--;
-//     const array = Array(anz);
-//     array.fill("x");
-//     if (max >= 0) {
-//         obj = {
-//             level: max,
-//             value: max + Math.random(),
-//             children: array.map(() => {
-//                 return obj = {
-//                     level:max,
-//                     value: max+Math.random(),
-//                     children: obj
-//                 }
-//             }),
-//         };
-//         global.unshift(obj);
-//         repeat(max);
-//     }
-// }
-
-// console.log(repeat(), global);
-// console.log(module);
-
 // Erstelle eine *Self-Invoking function*, die ein mehrdimensionales Array dieser Objects generiert und in eine Variable `response` speichert.
 // Die Funktion muss Parameter unterstützen, um folgende Faktoren bei der Generierung des Arrays beeinflussen zu können:
 // • Anzahl von Objects, die in jedes Level generiert werden (default-Wert = 2)
@@ -183,16 +61,20 @@
 //   }
 // ]
 // ```
+let check = 0;
 const response = (function binaryTreeGeneration(maxLevel = 4, childAnz = 2, currentLevel = 0){
     if(currentLevel === maxLevel) {
         return [];
     }
         const repeat = [];
         const level = currentLevel +1;
+        let random = Math.random();
         for (let j = 0; j < childAnz; j++) {
+            check += currentLevel + random;
+
             repeat.push(obj = {
                 level: currentLevel,
-                value: currentLevel + Math.random(),
+                value: currentLevel + random,
                 children: binaryTreeGeneration(maxLevel, childAnz, level)
             });
         }
@@ -265,6 +147,17 @@ console.log(response);
 // ### 2.2 total aller Objekte
 // Ermittle die Summe aller Objekte im Array.
 //isnt that just the subtotal of the object with level 0??
+
+function calcAllValue(array){
+    let sum = 0;
+    for(i = 0; i<array.length; i++)
+    {
+         sum += array[i].subTotal; 
+    }
+    return sum;
+}
+
+console.log(calcAllValue(response), check, calcAllValue(response)-check);
 
 // ## 3. Verifiziere die Gesamtsumme
 // Summiere die Values aller Objekte schon bei deren Generierung (Schritt 1) in einer Variable.
