@@ -221,7 +221,7 @@ function calc(obj) {
         let sum = obj.value;
         for(let ii=0; ii<obj.children.length;ii++)
         {
-            sum += obj.children[ii].value;
+            sum += obj.children[ii].subTotal;
         }
         return sum;
     // die summe aller children in einer ebene
@@ -237,17 +237,6 @@ console.log(response);
 // }
 // ```
 
-function addSubTotal() {
-    for (i = 0; i < global.length; i++) {
-        global[i].subTotal = 0;
-        for (ii = 0; ii < global.length; ii++) {
-            if (global[i].level < global[ii].level) {
-                global[i].subTotal += global[ii].value;
-            }
-        }
-    }
-    console.log(obj);
-}
 // Der jeweilige Wert für die subTotal-Eigenschaft errechnet sich aus der Summe von (eigene value) [plus] (values aller children und sub-children).
 // Beispiel:
 // ```
