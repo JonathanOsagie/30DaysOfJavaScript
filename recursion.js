@@ -201,16 +201,14 @@ const response = (function binaryTreeGeneration(maxLevel = 4, childAnz = 2, curr
 
 // ## 2. Berechne die Summe der values aller Objekte in ihrer Hierarchie
 function gettingCurrentObject(array){
-    if(array.length != 0)
-    {
-        for(let k=0; k<array.length;k++)
-        {
-            gettingCurrentObject(array[k].children);
-            const currentobj = array[k];
-            currentobj.subTotal = calc(currentobj);
-        }
-    }
+    if(!array.length) {return;}
 
+    for(let k=0; k<array.length;k++)
+    {
+        gettingCurrentObject(array[k].children);
+        const currentobj = array[k];
+        currentobj.subTotal = calc(currentobj);
+    }
     //gettingCurrentObject(array[i].children);
 
 }
