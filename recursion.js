@@ -61,54 +61,7 @@
 //   }
 // ]
 // ```
-let check = 0;
-const response = (function binaryTreeGeneration(maxLevel = 4, childAnz = 2, currentLevel = 0){
-    if(currentLevel === maxLevel) {
-        return [];
-    }
-        const repeat = [];
-        const level = currentLevel +1;
-        let random = Math.random();
-        for (let j = 0; j < childAnz; j++) {
-            check += currentLevel + random;
-
-            repeat.push(obj = {
-                level: currentLevel,
-                value: currentLevel + random,
-                children: binaryTreeGeneration(maxLevel, childAnz, level)
-            });
-        }
-        return repeat;
-})();
-
 // ## 2. Berechne die Summe der values aller Objekte in ihrer Hierarchie
-function gettingCurrentObject(array){
-    if(!array.length) {return;}
-
-    for(let k=0; k<array.length;k++)
-    {
-        gettingCurrentObject(array[k].children);
-        const currentobj = array[k];
-        currentobj.subTotal = calc(currentobj);
-    }
-    //gettingCurrentObject(array[i].children);
-
-}
-gettingCurrentObject(response);
-
-function calc(obj) {
-    
-        let sum = obj.value;
-        for(let ii=0; ii<obj.children.length;ii++)
-        {
-            sum += obj.children[ii].subTotal;
-        }
-        return sum;
-    // die summe aller children in einer ebene
-    //diese summe dann addieren zum value vom parent
-}
-console.log(response);
-
 // ### 2.1 subTotal jedes Objects
 // Füge jedem Object in dem mehrdimensionalen Array eine weitere Eigenschaft hinzu:
 // ```
@@ -116,7 +69,6 @@ console.log(response);
 //   subTotal: number;
 // }
 // ```
-
 // Der jeweilige Wert für die subTotal-Eigenschaft errechnet sich aus der Summe von (eigene value) [plus] (values aller children und sub-children).
 // Beispiel:
 // ```
@@ -148,6 +100,58 @@ console.log(response);
 // Ermittle die Summe aller Objekte im Array.
 //isnt that just the subtotal of the object with level 0??
 
+// ## 3. Verifiziere die Gesamtsumme
+// Summiere die Values aller Objekte schon bei deren Generierung (Schritt 1) in einer Variable.
+// Vergleiche diese dann mit der Summe aller Objects (Schritt 2.2) um sicherzugehen, dass der Wert stimmt.
+
+let check = 0;
+const response = (function binaryTreeGeneration(maxLevel = 4, childAnz = 2, currentLevel = 0){
+    if(currentLevel === maxLevel) {
+        return [];
+    }
+        const repeat = [];
+        const level = currentLevel +1;
+        let random = Math.random();
+        for (let j = 0; j < childAnz; j++) {
+            check += currentLevel + random;
+
+            repeat.push(obj = {
+                level: currentLevel,
+                value: currentLevel + random,
+                children: binaryTreeGeneration(maxLevel, childAnz, level)
+            });
+        }
+        return repeat;
+})();
+
+function gettingCurrentObject(array){
+    if(!array.length) {return;}
+
+    for(let k=0; k<array.length;k++)
+    {
+        gettingCurrentObject(array[k].children);
+        const currentobj = array[k];
+        currentobj.subTotal = calc(currentobj);
+    }
+    //gettingCurrentObject(array[i].children);
+
+}
+gettingCurrentObject(response);
+
+function calc(obj) {
+    
+        let sum = obj.value;
+        for(let ii=0; ii<obj.children.length;ii++)
+        {
+            sum += obj.children[ii].subTotal;
+        }
+        return sum;
+    // die summe aller children in einer ebene
+    //diese summe dann addieren zum value vom parent
+}
+console.log(response);
+
+
 function calcAllValue(array){
     let sum = 0;
     for(i = 0; i<array.length; i++)
@@ -158,7 +162,3 @@ function calcAllValue(array){
 }
 
 console.log(calcAllValue(response), check, calcAllValue(response)-check);
-
-// ## 3. Verifiziere die Gesamtsumme
-// Summiere die Values aller Objekte schon bei deren Generierung (Schritt 1) in einer Variable.
-// Vergleiche diese dann mit der Summe aller Objects (Schritt 2.2) um sicherzugehen, dass der Wert stimmt.
