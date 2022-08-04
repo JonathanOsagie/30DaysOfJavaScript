@@ -1,4 +1,4 @@
-//const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand'];
+const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand','F'];
 const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook'];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const products = [
@@ -61,24 +61,43 @@ function categorizeCountries(category)
 }
 
 //2.4
+// const letterArray = [];
+// const obj = {};
+// for(let i = 0; i < countries.length; i++){
+//   const currentValue = countries[i][0];
+//   if(typeof obj[currentValue] === 'undefined'){
+//       obj[currentValue] = 0;
+//       for(let x = 0; x <  countries.length; x++){
+//           if(currentValue === countries[x][0])
+//           {
+//               obj[currentValue]++;
+//           }
+//       }
+//   }
+// }
+
+// function countLetter(){
+//   const letterArray = countries.map(x => x[0]);
+//   const count = letterArray.map(x => obj = {letter : x, amount : 0});
+
+//   return count;
+// }
+
 const letterArray = [];
-const obj = {};
 for(let i = 0; i < countries.length; i++){
   const currentValue = countries[i][0];
-  if(typeof obj[currentValue] === 'undefined'){
-      obj[currentValue] = 0;
+  let obj = {letter : currentValue, amount: 0};
+  console.log(obj.letter);
+  if(!letterArray.includes(obj.letter)){
+      letterArray.push(obj);
       for(let x = 0; x <  countries.length; x++){
           if(currentValue === countries[x][0])
           {
-              obj[currentValue]++;
+            //console.log(letterArray[x], x);
+            //hier dannn amount erhöhen
           }
       }
   }
 }
 
-function countLetter(){
-  const count = countries.map(x => {return {name : x[0]}});
-  return count;
-}
-
-console.log(countLetter());
+//console.log(letterArray);
